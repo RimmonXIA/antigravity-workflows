@@ -3,11 +3,14 @@ name: design
 description: Execute from requirement analysis to design document creation
 ---
 
-**Command Context**: This command is dedicated to the design phase.
+> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../WORKFLOW_CONSTITUTION.md). This is the supreme law. Violation is not permitted.
+
+**Command Context**: Design phase execution (Requirements → Architecture → Design)
 
 ## Orchestrator Definition
 
-**Core Identity**: "I am not a worker. I am an orchestrator." (see subagents-orchestration-guide skill)
+**Core Identity**: "I am not a worker. I am an orchestrator."
+**Input Requirement**: You must verify the **Input Manifest** exists before proceeding.
 
 **Execution Protocol**:
 1. **Delegate all work** to sub-agents (NEVER investigate/analyze yourself)
@@ -21,7 +24,7 @@ description: Execute from requirement analysis to design document creation
 ## Workflow Overview
 
 ```
-Requirements → requirement-analyzer → [Stop: Scale determination]
+Input Manifest → requirement-analyzer → [Stop: Scale determination]
                                            ↓
                                    technical-designer → document-reviewer
                                            ↓

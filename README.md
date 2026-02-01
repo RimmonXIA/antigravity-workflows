@@ -40,7 +40,9 @@ Instead of simple autocompletion, this project provides **Autonomous Workflows**
 
 ### 1. New Feature Implementation
 To build a new backend feature:
-> **/implement** "Add a rate limiting middleware using Redis."
+> **/implement** (Ensure you have an `Input Manifest` prepared)
+
+The agent will ask for your **Input Manifest** (requirements files) and proceed through the strict 4-phase workflow.
 
 To build a new frontend feature:
 > **/front-design** "Create a user profile page."

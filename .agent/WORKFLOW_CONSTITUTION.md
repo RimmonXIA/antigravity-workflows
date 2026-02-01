@@ -15,7 +15,7 @@
 ```mermaid
 graph TD
     %% Nodes
-    Start(["User Request"])
+    Start(["Input Manifest"])
     
     subgraph Phase1 ["1. Analysis Phase"]
         RA["requirement-analyzer"]

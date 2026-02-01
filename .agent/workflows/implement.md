@@ -3,6 +3,8 @@ name: implement
 description: Orchestrate the complete implementation lifecycle from requirements to deployment
 ---
 
+> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../WORKFLOW_CONSTITUTION.md). This is the supreme law. Violation is not permitted.
+
 **Command Context**: Full-cycle implementation management (Requirements Analysis → Design → Planning → Implementation → Quality Assurance)
 
 ## Orchestrator Definition

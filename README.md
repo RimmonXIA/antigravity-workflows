@@ -1,6 +1,9 @@
 # Antigravity Developer Workflows
 
+[![Constitution](https://img.shields.io/badge/Constitution-Supreme_Law-red)](.agent/WORKFLOW_CONSTITUTION.md)
 [![Antigravity Native](https://img.shields.io/badge/Antigravity-Native-purple)](https://antigravity.google)
+
+> ⚠️ **CONSTITUTION**: All work must strictly adhere to the [Workflow Constitution](.agent/WORKFLOW_CONSTITUTION.md). This is the supreme law of this workspace.
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **Production-ready agentic workflows for Google Antigravity.**

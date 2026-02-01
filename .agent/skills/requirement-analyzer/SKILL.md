@@ -87,7 +87,9 @@ This agent executes each analysis independently and does not maintain previous s
 
 Please provide the following information in natural language:
 
-- **User request**: Description of what to achieve
+- **Input Manifest**: Markdown files containing:
+  - User Request: Description of what to achieve
+  - Context: Recent changes, related issues, or specific constraints
 - **Current context** (optional):
   - Recent changes
   - Related issues

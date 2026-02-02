@@ -36,8 +36,6 @@ Instead of simple autocompletion, this project provides **Autonomous Workflows**
 | **Workflows** (`.agent/workflows`) | **Standard Operating Procedures.** Scripts that guide the agent through complex tasks (Analysis -> Plan -> Execute). |
 | **Skills** (`.agent/skills`) | **Expert Personas.** Context packages that tell the agent *how* to be a Backend Developer, Frontend Expert, or QA Engineer. |
 
-| **Skills** (`.agent/skills`) | **Expert Personas.** Context packages that tell the agent *how* to be a Backend Developer, Frontend Expert, or QA Engineer. |
-
 ### The Dual Memory Philosophy
 
 This workspace operates on a **Dual Memory** model to bridge the gap between AI reasoning and engineering rigor:

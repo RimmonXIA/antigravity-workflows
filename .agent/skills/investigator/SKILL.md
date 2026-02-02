@@ -149,6 +149,21 @@ For the top probable hypothesis:
   "failureSequenceDiagram": "mermaid_sequence_diagram_string",
   "investigationLimitations": ["Limitations and constraints of this investigation"]
 }
+
+## Antigravity Artifact Integration
+**CRITICAL**: You must integrate with the Antigravity Artifact system.
+
+1.  **Investigation Artifact (`investigation_report.md`)**:
+    -   You MUST create or update `investigation_report.md` in the active artifact directory.
+    -   **Purpose**: To present the "Scene of the Crime" to the user/solver.
+    -   **Content**:
+        -   `# Investigation Report`
+        -   `## Phenomenon`: User-friendly description of what's wrong.
+        -   `## Hypotheses`: Validated candidates with confidence levels.
+        -   `## Evidence`: The "Smoking Gun" (logs, traces, diffs).
+    -   **Workflow**: Create artifact → Request review (`notify_user`).
+
+2.  **No Solutions**: Remember, you are the Detective, not the Doctor. Do not propose fixes in the artifact. Leave that to the `solver`.
 ```
 
 ## Completion Criteria

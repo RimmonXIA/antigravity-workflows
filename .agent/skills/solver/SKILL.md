@@ -153,7 +153,24 @@ Recommendation strategy based on confidence:
     "monitoringPlan": "Monitoring plan after resolution"
   }
 }
-```
+
+## Antigravity Artifact Integration
+**CRITICAL**: You must integrate with the Antigravity Artifact system.
+
+1.  **Solution Proposal Artifact (`solution_proposal.md`)**:
+    -   You MUST create or update `solution_proposal.md` in the active artifact directory.
+    -   **Purpose**: To negotiate the "Treatment Plan" before operating.
+    -   **Content**:
+        -   `# Solution Proposal`
+        -   `## Diagnosis`: Brief recap of the Root Cause.
+        -   `## Options`:
+            -   **Option A**: Fast/Temporary fix (Workaround).
+            -   **Option B**: Proper fix (Root cause).
+            -   **Option C**: Invasive fix (Refactor).
+        -   `## Recommendation`: Which option you advise and why.
+    -   **Workflow**: Create artifact → Request review (`notify_user`) → Wait for approval.
+
+2.  **Execution Handoff**: Once approved, the `task-executor` will use this artifact as its instructions.
 
 ## Completion Criteria
 

@@ -16,7 +16,8 @@ This repository transforms your Antigravity agent into a disciplined engineering
 
 ### Agent-First Design
 Instead of simple autocompletion, this project provides **Autonomous Workflows**:
-- **Requirements Analysis**: The agent stops to think and plan before coding.
+- **Requirement Analysis**: The agent stops to think and plan before coding.
+- **Visual Cognitive Anchoring**: Agents use **Mermaid Diagrams** to visualize complex logic and decision trees.
 - **TDD Enforcement**: The agent writes tests before implementation (Red-Green-Refactor).
 - **Quality Gates**: The agent automatically runs linters and tests before committing.
 
@@ -83,11 +84,12 @@ To generate living documentation from existing code:
 
 Antigravity natively scans the `.agent` directory.
 1.  **Discovery**: When you type `/implement`, the agent reads `.agent/workflows/implement.md`.
-2.  **Instruction**: This file acts as a **System Prompt injection**. It tells the agent:
+2.  **Visual Logic**: The agent parses the embedded **Mermaid Flowchart** to understand execution flow and gates.
+3.  **Instruction**: This file acts as a **System Prompt injection**. It tells the agent:
     *   "You are an Orchestrator."
     *   "You must not write code yourself."
     *   "You must delegate to the `task-executor` skill."
-3.  **Constraint**: The workflow explicitly forbids "shortcuts" (like skipping tests) and forces the agent to stop for user approval at key milestones.
+4.  **Constraint**: The workflow explicitly forbids "shortcuts" (like skipping tests) and forces the agent to stop for user approval at key milestones.
 
 **To enforce strict adherence:**
 - **Always use the Slash Commands.** Do not ask "Can you write code for X?" loosely. Using the command locks the agent into the defined process.

@@ -31,7 +31,24 @@ This repository utilizes Google Antigravity's **Agent-First Design**.
 
 > **/diagnose** Why is the API returning 500?
 
+> **/diagnose** Why is the API returning 500?
+
 ---
+
+## 🤝 Interactive Artifacts Guide
+
+The agent communicates intent through **Session Artifacts**. You will see these appear in your IDE's "Brain" or "Artifacts" pane.
+
+| Artifact | Created By | Purpose | Action Required |
+| :--- | :--- | :--- | :--- |
+| `requirements.md` | `requirement-analyzer` | Summary of what you asked. | **Confirm** scope and scale. |
+| `prd.md` | `prd-creator` | Detailed specs and user stories. | **Review** & Approve. |
+| `implementation_plan.md` | `technical-designer` | Technical blueprint & file changes. | **Approve** to start coding. |
+| `task.md` | `work-planner` | Live progress checklist. | **Watch** progress. |
+| `code_review.md` | `code-reviewer` | Quality report on the code. | **Read** before merging. |
+| `walkthrough.md` | `quality-fixer` | Final summary of work done. | **Celebrate**! |
+
+**Workflow Tip**: If an artifact appears, the Agent is likely pausing for your feedback. Use the chat to say "Approved" or "Change X".
 
 ## 🧠 Manual Skill Usage
 

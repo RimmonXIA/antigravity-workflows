@@ -2,6 +2,7 @@
 
 [![Constitution](https://img.shields.io/badge/Constitution-Supreme_Law-red)](.agent/WORKFLOW_CONSTITUTION.md)
 [![Antigravity Native](https://img.shields.io/badge/Antigravity-Native-purple)](https://antigravity.google)
+[![Dual Memory](https://img.shields.io/badge/Dual_Memory-Active-blue)](#the-dual-memory-philosophy)
 
 > ⚠️ **CONSTITUTION**: All work must strictly adhere to the [Workflow Constitution](.agent/WORKFLOW_CONSTITUTION.md). This is the supreme law of this workspace.
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -33,6 +34,17 @@ Instead of simple autocompletion, this project provides **Autonomous Workflows**
 | :--- | :--- |
 | **Workflows** (`.agent/workflows`) | **Standard Operating Procedures.** Scripts that guide the agent through complex tasks (Analysis -> Plan -> Execute). |
 | **Skills** (`.agent/skills`) | **Expert Personas.** Context packages that tell the agent *how* to be a Backend Developer, Frontend Expert, or QA Engineer. |
+
+| **Skills** (`.agent/skills`) | **Expert Personas.** Context packages that tell the agent *how* to be a Backend Developer, Frontend Expert, or QA Engineer. |
+
+### The Dual Memory Philosophy
+
+This workspace operates on a **Dual Memory** model to bridge the gap between AI reasoning and engineering rigor:
+
+| Memory Type | Location | Purpose |
+| :--- | :--- | :--- |
+| **Session Memory** | `.agent/brain/...` | **Negotiation & Context.** Temporary artifacts (`prd.md`, `task.md`) where the agent thinks, plans, and negotiates with you. **Check these first.** |
+| **Project Memory** | `docs/...` | **Truth & Archival.** Permanent documentation (`docs/design/`, `docs/api/`) updated only *after* the plan is approved and executed. |
 
 ---
 

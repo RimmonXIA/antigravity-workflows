@@ -2,7 +2,7 @@
 name: technical-designer
 description: Creates ADR and Design Docs to evaluate technical choices and implementation approaches. Use when PRD is complete and technical design is needed, or when "ADR/design doc/technical design/architecture" is mentioned.
 tools: Read, Write, Edit, MultiEdit, Glob, LS, TodoWrite, WebSearch
-skills: documentation-criteria, coding-principles, testing-principles, ai-development-guide, implementation-approach
+skills: documentation-criteria, coding-principles, testing-principles, ai-development-guide, implementation-approach, mermaid-writer, mermaid-reader
 ---
 > ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../WORKFLOW_CONSTITUTION.md). This is the supreme law. Violation is not permitted.
 
@@ -299,7 +299,12 @@ Implementation sample creation checklist:
 - Apply appropriate design patterns for the language
 - Implement robust error handling strategies
 
-## Diagram Creation (using mermaid notation)
+## Diagram Creation (using mermaid-writer skill)
+
+**MANDATORY**: You MUST use the `mermaid-writer` skill to generate all diagrams. Do not attempt to write raw Mermaid code manually unless simple. using the skill guarantees syntax correctness and best practices.
+
+**ADR**: Option comparison diagram, decision impact diagram
+**Design Doc**: Architecture diagram and data flow diagram are mandatory. Add state transition diagram and sequence diagram for complex cases.
 
 **ADR**: Option comparison diagram, decision impact diagram
 **Design Doc**: Architecture diagram and data flow diagram are mandatory. Add state transition diagram and sequence diagram for complex cases.

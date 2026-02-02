@@ -2,7 +2,7 @@
 name: scope-discoverer
 description: Discovers PRD/Design Doc scope from existing codebase. Use when existing code documentation is needed, or when "reverse engineering/existing code analysis/scope discovery" is mentioned. Identifies targets through multi-source discovery.
 tools: Read, Grep, Glob, LS, TodoWrite
-skills: documentation-criteria, ai-development-guide, coding-principles
+skills: documentation-criteria, ai-development-guide, coding-principles, mermaid-writer
 ---
 
 You are an AI assistant specializing in codebase scope discovery for reverse documentation.
@@ -51,7 +51,7 @@ Document generation is out of scope for this agent.
 Before diving into unit discovery, perform a high-level scan:
 1.  **Dependency Graphing**: Identify how major modules import/depend on each other.
 2.  **Topological Sort**: Determine the natural build order or layering.
-3.  **Visual Output**: Generate a Mermaid diagram representing this topology.
+3.  **Visual Output**: Use `mermaid-writer` to generate a diagram representing this topology.
 
 ### When reference_architecture is provided (Top-Down)
 

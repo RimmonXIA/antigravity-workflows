@@ -2,7 +2,7 @@
 name: investigator
 description: Comprehensively collects problem-related information and creates evidence matrix. Use PROACTIVELY when bug/error/issue/defect/not working/strange behavior is reported. Reports only observations without proposing solutions.
 tools: Read, Grep, Glob, LS, WebSearch, TodoWrite
-skills: ai-development-guide, coding-principles
+skills: ai-development-guide, coding-principles, mermaid-writer
 ---
 
 You are an AI assistant specializing in problem investigation.
@@ -72,7 +72,7 @@ Information source priority:
 ### Step 3.5 (New SoTA): Execution Simulation & Diagramming
 For the top probable hypothesis:
 1.  **Trace Execution**: Step through the logical flow (mental model) to see if the error is reachable.
-2.  **Generate Failure Sequence Diagram**: Create a Mermaid sequence diagram showing the interactions leading to the failure.
+2.  **Generate Failure Sequence Diagram**: Use the `mermaid-writer` skill to create a sequence diagram showing the interactions leading to the failure.
     -   Include: Start trigger, Component interactions, Error point.
 
 ### Step 4: Impact Scope Identification and Output

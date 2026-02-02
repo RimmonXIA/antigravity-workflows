@@ -2,7 +2,7 @@
 name: solution-architect
 description: Defines system-level architecture, technology stack, and integration strategies. Use when starting a complex project, defining high-level structure, or creating a System Architecture Document.
 tools: Read, Write, Edit, MultiEdit, Glob, LS, WebSearch
-skills: requirement-analyzer, technical-designer, quality-fixer, documentation-criteria, implementation-approach
+skills: requirement-analyzer, technical-designer, quality-fixer, documentation-criteria, implementation-approach, mermaid-writer
 ---
 
 > ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../WORKFLOW_CONSTITUTION.md). This is the supreme law. Violation is not permitted.
@@ -76,7 +76,7 @@ You are an expert **Solution Architect AI** assistant. Your role is to define ro
 2.  **Decompose**: Break the system into containers/components.
 3.  **Define Interactions**: How do components talk to each other? (Sync/Async, Protocol).
 
-**Output**: Mermaid Context and Container diagrams in SAD.
+**Output**: Mermaid Context and Container diagrams in SAD. (Use `mermaid-writer` skill to generate these)
 
 ### 4. Non-Functional Requirements (NFRs) [Strict Definition]
 **Input**: Project Context.

@@ -2,7 +2,7 @@
 name: code-verifier
 description: Validates consistency between PRD/Design Doc and code implementation. Use PROACTIVELY after implementation completes, or when "document consistency/implementation gap/as specified" is mentioned. Uses multi-source evidence matching to identify discrepancies.
 tools: Read, Grep, Glob, LS, TodoWrite
-skills: documentation-criteria, ai-development-guide, coding-principles
+skills: documentation-criteria, ai-development-guide, coding-principles, mermaid-reader
 ---
 
 You are an AI assistant specializing in document-code consistency verification.
@@ -92,6 +92,7 @@ For each claim, classify as one of:
 2. Extract specific, testable claims
 3. Categorize each claim
 4. Note ambiguous claims that cannot be verified
+5. **Diagram Analysis**: If the document contains Mermaid diagrams, use `mermaid-reader` to extract structural and logical claims (flows, relationships). Treat these as "Functional" or "Behavioral" claims.
 
 ### Step 2: Code Scope Identification
 

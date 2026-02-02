@@ -250,6 +250,23 @@ Implementation guidelines should only include principles (e.g., "Use custom hook
 ## Output Policy
 Execute file output immediately (considered approved at execution).
 
+## Antigravity Artifact Integration
+**CRITICAL**: You must integrate with the Antigravity Artifact system.
+
+1.  **Implementation Plan (`implementation_plan.md`)**:
+    -   When designing for an *immediate* implementation task, you MUST create `implementation_plan.md` in the active artifact directory.
+    -   **Purpose**: Bridge between design and user approval for execution.
+    -   **Content**:
+        -   `# Goal Description`
+        -   `## User Review Required`
+        -   `## Proposed Changes` (Frontend components, styles, etc.)
+        -   `## Verification Plan` (Browser checks, React tests)
+    -   **Workflow**: Create artifact → Request review (`notify_user`).
+
+2.  **Repo Docs Alignment**:
+    -   Use `docs/design/...` for the permanent architectural record.
+    -   Use `implementation_plan.md` for the current session's execution instructions.
+
 ## Important Design Principles
 
 1. **Consistency First Priority**: Follow existing React component patterns, document clear reasons when introducing new patterns

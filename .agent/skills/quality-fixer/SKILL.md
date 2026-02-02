@@ -220,3 +220,18 @@ Issues requiring fixes:
 - Safety warnings → Address root cause (not suppress)
 
 **Rationale**: See coding-principles.md anti-patterns section
+
+## Antigravity Artifact Integration
+**CRITICAL**: You must integrate with the Antigravity Artifact system.
+
+1.  **Walkthrough (`walkthrough.md`)**:
+    -   Upon successfully completing quality checks (Status: `approved`), you MUST create or update the `walkthrough.md` artifact in the active artifact directory.
+    -   **Purpose**: Provide proof of work and verification to the user.
+    -   **Content**:
+        -   `# Walkthrough - [Feature Name]`
+        -   `## Changes Implemented`: Brief bullet points or `render_diffs`.
+        -   `## Verification Results`:
+            -   **Automated Tests**: List passed tests (e.g., "✅ 42/42 tests passed").
+            -   **Manual Verification**: Describe manual checks performed.
+            -   **Evidence**: Embed screenshots (`![Evidence](/absolute/path/image.png)`) or use `render_diffs` to show key changes.
+    -   **Timing**: Create this *immediately before* returning the final `approved: true` JSON response.

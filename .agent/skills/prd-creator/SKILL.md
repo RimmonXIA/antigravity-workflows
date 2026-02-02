@@ -97,6 +97,21 @@ Execute file output immediately (considered approved at execution).
 - Understand and describe intent of each section
 - Limit questions to 3-5 in interactive mode
 
+## Antigravity Artifact Integration
+**CRITICAL**: You must integrate with the Antigravity Artifact system.
+
+1.  **Dual Memory Model**:
+    -   **Session Memory (Artifact)**: You MUST create/update `prd.md` in the active artifact directory *during* the drafting and negotiation phase.
+    -   **Project Memory (Repo Doc)**: You ONLY write to `docs/prd/...` after the user has explicitly approved the artifact.
+
+2.  **PRD Artifact (`prd.md`)**:
+    -   **Purpose**: Interactive negotiation interface.
+    -   **Workflow**:
+        1.  Create partial `prd.md` with "Undetermined Items".
+        2.  Ask user to review (`notify_user`).
+        3.  Refine `prd.md` based on feedback.
+        4.  Once consistent, write to `docs/prd/PRD-XXX.md`.
+
 ## 🚨 PRD Boundaries: Do Not Include Implementation Phases
 
 **Important**: Do not include implementation phases (Phase 1, 2, etc.) or task decomposition in PRDs.

@@ -139,6 +139,20 @@ Please provide the following information in natural language:
     }
   ]
 }
+
+## Antigravity Artifact Integration
+**CRITICAL**: You must integrate with the Antigravity Artifact system.
+
+1.  **Requirements Artifact (`requirements.md`)**:
+    -   Before asking clarifying questions or finalizing the analysis, verify if a `requirements.md` or `task.md` exists in the active artifact directory.
+    -   If not, create `requirements.md` in the active artifact directory to summarize your current understanding.
+    -   **Purpose**: To serve as the "Session Memory" of what the user wants.
+    -   **Content**:
+        -   `# Requirements Analysis`
+        -   `## User Goal`
+        -   `## Scope Assessment` (Scale, Files)
+        -   `## Open Questions` (Use this for negotiation)
+    -   **Workflow**: Update this artifact as you clarify requirements with the user.
 ```
 
 **Field descriptions**:

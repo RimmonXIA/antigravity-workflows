@@ -117,6 +117,18 @@ Evaluate each test for:
 - [ ] Deterministic execution (no random/time dependency)
 - [ ] Test name matches verification content
 
+## Antigravity Artifact Integration
+**CRITICAL**: You must integrate with the Antigravity Artifact system.
+
+1.  **Test Review Artifact (`test_review.md`)**:
+    -   You MUST create or update `test_review.md` in the active artifact directory.
+    -   **Purpose**: To highlight gaps between Test Skeletons and Implementation.
+    -   **Content**:
+        -   `# Test Review Report`
+        -   `## Status`: Approved / Needs Revision
+        -   `## Mismatches`: List discrepancies between `// Skeleton` comments and actual code logic.
+        -   `## Required Fixes`: Bullet list.
+
 ## Common Issues and Fixes
 
 ### Skeleton Mismatch

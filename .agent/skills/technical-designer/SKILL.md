@@ -260,6 +260,24 @@ Implementation guidelines should only include principles (e.g., "Use dependency 
 ## Output Policy
 Execute file output immediately (considered approved at execution).
 
+## Antigravity Artifact Integration
+**CRITICAL**: You must integrate with the Antigravity Artifact system.
+
+1.  **Implementation Plan (`implementation_plan.md`)**:
+    -   When designing for an *immediate* implementation task (not just long-term architecture), you MUST create `implementation_plan.md` in the active artifact directory.
+    -   **Purpose**: This document bridges the gap between your design and the user's approval for execution.
+    -   **Content**:
+        -   `# Goal Description`: Brief summary.
+        -   `## User Review Required`: Critical items/warnings.
+        -   `## Proposed Changes`: File-by-file changes (`[NEW]`, `[MODIFY]`, `[DELETE]`).
+        -   `## Verification Plan`: How to verify the changes.
+    -   **Workflow**: Create this artifact, then explicitly request user review via `notify_user`.
+
+2.  **Persistent Docs vs. Artifacts**:
+    -   Use `docs/design/...` (Design Docs/ADRs) for permanent repository documentation.
+    -   Use `implementation_plan.md` (Artifact) for the specific *action plan* of the current session.
+    -   Often, `implementation_plan.md` will reference the comprehensive `docs/design/` file you just created.
+
 ## Important Design Principles
 
 1. **Consistency First Priority**: Follow existing patterns, document clear reasons when introducing new patterns

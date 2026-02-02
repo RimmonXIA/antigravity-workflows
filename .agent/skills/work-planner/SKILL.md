@@ -61,6 +61,26 @@ Please provide the following information in natural language:
 ## Output Policy
 Execute file output immediately (considered approved at execution).
 
+## Antigravity Artifact Integration
+**CRITICAL**: You must integrate with the Antigravity Artifact system.
+
+1.  **Primary Task List (`task.md`)**:
+    -   Instead of (or in addition to) a `work_plan.md` in `docs/`, you MUST create or update the unique `task.md` artifact in the active artifact directory (typically `<appDataDir>/brain/<conversation-id>/task.md`).
+    -   The `task.md` serves as the "Living Task List" for the user interface.
+    -   Format:
+        ```markdown
+        # Task: [Overall Objective Name]
+        
+        - [ ] [Phase 1: Name]
+            - [ ] [Task 1.1]
+            - [ ] [Task 1.2]
+        - [ ] [Phase 2: Name]
+        ```
+    -   Update rule: Mark items as `[/]` (in progress) or `[x]` (completed) dynamically.
+
+2.  **Legacy Work Plans**:
+    -   You may still create `docs/plans/work_plan.md` if a permanent record in the repo is required, but `task.md` is mandatory for the interactive session.
+
 ## Important Task Design Principles
 
 1. **Executable Granularity**: Each task as logical 1-commit unit, clear completion criteria, explicit dependencies

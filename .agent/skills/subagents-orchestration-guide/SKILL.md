@@ -176,34 +176,45 @@ Criteria for timing when to call each agent:
 When receiving new features or change requests, start with requirement-analyzer.
 According to scale determination:
 
-### Large Scale (6+ Files) - 11 Steps
+## Basic Flow for Work Planning (Antigravity Artifacts Edition)
 
-1. requirement-analyzer → Requirement analysis + Check existing PRD **[Stop]**
-2. prd-creator → PRD creation
-3. document-reviewer → PRD review **[Stop: PRD Approval]**
-4. technical-designer → ADR creation (if architecture/technology/data flow changes)
-5. document-reviewer → ADR review (if ADR created) **[Stop: ADR Approval]**
-6. technical-designer → Design Doc creation
-7. document-reviewer → Design Doc review
-8. design-sync → Consistency verification **[Stop: Design Doc Approval]**
-9. acceptance-test-generator → Test skeleton generation, pass to work-planner (*1)
-10. work-planner → Work plan creation **[Stop: Batch approval]**
-11. task-decomposer → Autonomous execution → Completion report
+When receiving new features or change requests, start with requirement-analyzer.
+According to scale determination:
 
-### Medium Scale (3-5 Files) - 7 Steps
+### Large Scale (6+ Files) - 13 Steps
 
-1. requirement-analyzer → Requirement analysis **[Stop]**
-2. technical-designer → Design Doc creation
-3. document-reviewer → Design Doc review
-4. design-sync → Consistency verification **[Stop: Design Doc Approval]**
-5. acceptance-test-generator → Test skeleton generation, pass to work-planner (*1)
-6. work-planner → Work plan creation **[Stop: Batch approval]**
-7. task-decomposer → Autonomous execution → Completion report
+1.  requirement-analyzer → Requirement analysis + Check existing PRD **[Stop]**
+2.  prd-creator → PRD creation
+3.  document-reviewer → PRD review **[Stop: PRD Approval]**
+4.  technical-designer → ADR creation (if applicable)
+5.  document-reviewer → ADR review (if ADR created) **[Stop: ADR Approval]**
+6.  technical-designer → Design Doc creation (`docs/design/...`)
+7.  document-reviewer → Design Doc review
+8.  design-sync → Consistency verification **[Stop: Design Doc Approval]**
+9.  **technical-designer → Create `implementation_plan.md` (Artifact) **[Stop: Plan Approval]**
+10. acceptance-test-generator → Test skeleton generation, pass to work-planner (*1)
+11. work-planner → Work plan creation (`task.md` Artifact + `docs/plans/...`)
+12. task-decomposer → Autonomous execution
+13. **quality-fixer → Verification & `walkthrough.md` (Artifact) Creation** → Completion report
 
-### Small Scale (1-2 Files) - 2 Steps
+### Medium Scale (3-5 Files) - 9 Steps
 
-1. Create simplified plan **[Stop: Batch approval]**
-2. Direct implementation → Completion report
+1.  requirement-analyzer → Requirement analysis **[Stop]**
+2.  technical-designer → Design Doc creation (`docs/design/...`)
+3.  document-reviewer → Design Doc review
+4.  design-sync → Consistency verification **[Stop: Design Doc Approval]**
+5.  **technical-designer → Create `implementation_plan.md` (Artifact) **[Stop: Plan Approval]**
+6.  acceptance-test-generator → Test skeleton generation, pass to work-planner (*1)
+7.  work-planner → Work plan creation (`task.md` Artifact + `docs/plans/...`)
+8.  task-decomposer → Autonomous execution
+9.  **quality-fixer → Verification & `walkthrough.md` (Artifact) Creation** → Completion report
+
+### Small Scale (1-2 Files) - 4 Steps
+
+1.  **technical-designer → Create `implementation_plan.md` (Artifact) **[Stop: Plan Approval]**
+2.  work-planner → Create simplified `task.md`
+3.  task-executor → Direct implementation
+4.  **quality-fixer → Verification & `walkthrough.md` (Artifact) Creation** → Completion report
 
 ## Autonomous Execution Mode
 

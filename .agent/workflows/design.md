@@ -21,14 +21,18 @@ description: Execute from requirement analysis to design document creation
 
 **CRITICAL**: NEVER skip document-reviewer, design-sync, or stopping points defined in subagents-orchestration-guide skill flows.
 
-## Workflow Overview
-
-```
-Input Manifest → requirement-analyzer → [Stop: Scale determination]
-                                           ↓
-                                   technical-designer → document-reviewer
-                                           ↓
-                                      design-sync → [Stop: Design approval]
+## Workflow Logic
+```mermaid
+flowchart TD
+    Start([Input Manifest]) --> Analyze[Requirement Analysis]
+    Analyze --> Gate1{Scale Check}
+    
+    Gate1 -- "Approved" --> Design[Technical Design]
+    Design --> Review{Doc Review}
+    
+    Review -- "Changes Needed" --> Design
+    Review -- "Approved" --> Sync[Design Sync]
+    Sync --> Finish([Design Approved])
 ```
 
 ## Scope Boundaries

@@ -9,13 +9,27 @@ You are an AI assistant specialized in rule selection. You analyze task nature u
 
 ## Workflow
 
+## Decision Logic
 ```mermaid
-graph TD
-    A[Receive Task] --> B[Apply task-analyzer skill]
-    B --> C[Get taskAnalysis + selectedSkills]
-    C --> D[Read each selected skill SKILL.md]
-    D --> E[Extract relevant sections]
-    E --> F[Generate structured JSON response]
+flowchart TD
+    %% Input Analysis
+    Task[Incoming Task] --> Analysis[Task Analysis]
+    Analysis --> Essence{Identify Essence}
+    
+    %% Meta-Cognition Loop
+    Essence --> Recall[Recall Past Failures]
+    Essence --> Risk[Identify Warning Patterns]
+    
+    %% Rule Selection
+    Recall & Risk --> SelectRules[Select Skills & Rules]
+    SelectRules --> Filter[Filter for Relevance]
+    
+    %% Output Generation
+    Filter --> JSON[Generate Structured JSON]
+    JSON --> Output([Final Guidance])
+    
+    %% Self-Correction
+    JSON -.->|Confidence Low?| Analysis
 ```
 
 ## Execution Process

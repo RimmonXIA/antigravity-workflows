@@ -5,51 +5,53 @@ description: Performs metacognitive task analysis and skill selection. Use when 
 
 # Task Analyzer
 
+> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../WORKFLOW_CONSTITUTION.md). This is the supreme law. Violation is not permitted.
+
 Provides metacognitive task analysis and skill selection guidance.
 
 ## Skills Index
 
 See **[skills-index.yaml](references/skills-index.yaml)** for available skills metadata.
 
+## Decision Logic
+```mermaid
+graph TD
+    Input([Task Description]) --> Analyze{Analysis}
+    
+    %% Essence Extraction
+    Analyze --> Essence[Understand Purpose]
+    Essence --> Scale{File Count < 3?}
+    
+    %% Scale Determination
+    Scale -- "Yes" --> Small[Small Scale]
+    Scale -- "No" --> Large[Medium/Large Scale]
+    
+    %% Output
+    Small & Large --> Select[Skill Selection]
+    Select --> JSON([Output JSON])
+```
+
 ## Task Analysis Process
 
 ### 1. Understand Task Essence
-
-Identify the fundamental purpose beyond surface-level work:
-
-| Surface Work | Fundamental Purpose |
-|--------------|---------------------|
-| "Fix this bug" | Problem solving, root cause analysis |
-| "Implement this feature" | Feature addition, value delivery |
-| "Refactor this code" | Quality improvement, maintainability |
-| "Update this file" | Change management, consistency |
-
-**Key Questions:**
-- What problem are we really solving?
-- What is the expected outcome?
-- What could go wrong if we approach this superficially?
+**Goal**: Identify fundamental purpose beyond surface work.
+**Directives**:
+1.  **Look Deeper**: "Fix bug" -> "Root Cause Analysis".
+2.  **Ask**: What are we *really* solving?
 
 ### 2. Estimate Task Scale
-
-| Scale | File Count | Indicators |
-|-------|------------|------------|
-| Small | 1-2 | Single function/component change |
-| Medium | 3-5 | Multiple related components |
-| Large | 6+ | Cross-cutting concerns, architecture impact |
-
-**Scale affects skill priority:**
-- Larger scale → process/documentation skills more important
-- Smaller scale → implementation skills more focused
+**Constraint**: Use File Count as primary metric.
+-   **Small**: 1-2 files.
+-   **Medium**: 3-5 files.
+-   **Large**: 6+ files.
 
 ### 3. Identify Task Type
-
-| Type | Characteristics | Key Skills |
-|------|-----------------|------------|
-| Implementation | New code, features | coding-principles, testing-principles |
-| Fix | Bug resolution | ai-development-guide, testing-principles |
-| Refactoring | Structure improvement | coding-principles, ai-development-guide |
-| Design | Architecture decisions | documentation-criteria, implementation-approach |
-| Quality | Testing, review | testing-principles, integration-e2e-testing |
+**Match**:
+-   **Implementation**: New code -> `coding-principles`.
+-   **Fix**: Bug resolution -> `ai-development-guide`.
+-   **Refactoring**: Structure -> `coding-principles`.
+-   **Design**: Architecture -> `technical-designer`.
+-   **Quality**: Testing -> `testing-principles`.
 
 ### 4. Tag-Based Skill Matching
 

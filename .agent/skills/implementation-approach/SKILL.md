@@ -84,6 +84,25 @@ Business Constraints: Market launch timing, customer impact, regulatory complian
 
 ### Phase 5: Implementation Approach Decision
 
+## Strategy Selection Tree
+```mermaid
+graph TD
+    Start{Project Context}
+    
+    %% Branch 1: Dependencies
+    Start -- "Low/No Dependencies" --> Vertical[Vertical Slice]
+    Start -- "High Dependencies" --> ArchCheck{Stable Architecture?}
+    
+    %% Branch 2: Architecture
+    ArchCheck -- "Yes" --> Horizontal[Horizontal Slice]
+    ArchCheck -- "No / Complex" --> Hybrid[Hybrid Approach]
+    
+    %% Criteria Nuance
+    Vertical -.->|Prioritize| Value[User Value Delivery]
+    Horizontal -.->|Prioritize| Stable[System Stability]
+    Hybrid -.->|Prioritize| Flex[Flexibility/Risk Mgmt]
+```
+
 Select optimal solution from basic implementation approaches (creative combinations encouraged):
 
 #### Vertical Slice (Feature-driven)

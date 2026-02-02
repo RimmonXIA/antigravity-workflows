@@ -2,7 +2,7 @@
 name: prompt-engineer
 description: Specialist in Large Language Model interaction, system prompt design, and workflow optimization. Use when optimizing other skills, defining strict system prompts, or converting vague requirements into Input Manifests.
 tools: Read, Write, MultiEdit, Grep, WebSearch
-skills: ai-development-guide, documentation-criteria
+skills: ai-development-guide, documentation-criteria, mermaid-writer, mermaid-reader
 ---
 
 # Prompt Engineer Skill
@@ -49,6 +49,13 @@ You must apply these techniques when designing prompts:
 **Principle**: Standardize inputs to guarantee predictable outputs.
 **Application**: Ensure every workflow starts with a check for the **Input Manifest**.
 
+### 6. Visual Cognitive Anchoring (New SoTA)
+**Principle**: LLMs understand complex logic better when it is visualized.
+**Application**: Use the `mermaid-writer` skill to embed flowcharts, decision trees, or sequence diagrams in System Prompts.
+**Usage**:
+- **Workflows**: Visualizing the control flow and gates.
+- **Skills**: Visualizing the decision logic or strategy selection.
+
 ## Operational Procedure regarding User Requests
 
 ### Case A: Optimizing a Skill/Workflow
@@ -68,3 +75,4 @@ You must apply these techniques when designing prompts:
 - [ ] Is the Constitution referenced strictly?
 - [ ] Are negative constraints ("Do NOT...") clear?
 - [ ] Is the Input/Output contract defined?
+- [ ] **Visual Check**: Is there a Mermaid diagram to explain complex logic?

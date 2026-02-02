@@ -79,39 +79,29 @@ prompt: |
 ```
 **Store output as**: `$TOPOLOGY_MAP`
 
-## Diagnosis Flow Overview (Hypothesis-Driven)
-
+## Workflow Logic
 ```mermaid
-graph TD
-    Start --> Topology[Topology Mapping]
+flowchart TD
+    Start([User Report]) --> Topology[Scope Topology Map]
     Topology --> Investigate[Deep Investigation]
-    Investigate --> Verify{Hypothesis Verifier}
+    Investigate --> Verify{Hypothesis Verification}
     
-    Verify -->|Confidence < High| Loop[Hypothesis Loop]
-    Loop -->|Trace Logic| Investigate
+    Verify -- "Low Confidence" --> Loop[Refine Hypothesis]
+    Loop --> Investigate
     
-    Verify -->|Confidence = High| Solution[Solver]
-    Solution --> Report[Final Report]
+    Verify -- "High Confidence" --> Solution[Solution Derivation]
+    Solution --> Report([Final Report])
+    
+    %% Gates
+    Investigate -.->|Critical Risk| AskUser[User Intervention]
 ```
 
-## Execution Steps
-
-Register the following in TodoWrite and execute:
-
-### Step 1: Deep Investigation (investigator)
-
-**Task tool invocation**:
-```
-subagent_type: investigator
-prompt: |
-  Comprehensively collect information related to the following phenomenon.
-  
-  Phenomenon: [Problem reported by user]
-  Topology: $TOPOLOGY_MAP
-  mode: deep_tracing
-```
-
-**Expected output**: Evidence matrix, `failureSequenceDiagram`, comparison analysis, causal tracking.
+## Step 1: Deep Investigation
+**Agent**: `investigator`
+**Directives**:
+1.  **Map Topology**: Use `scope-discoverer` to find blast radius.
+2.  **Deep Trace**: Use `investigator` with `mode: deep_tracing`.
+3.  **Output**: Evidence Matrix + Failure Sequence Diagram (Mermaid).
 
 ### Step 2: Investigation Quality Check & Design Gap Escalation
 

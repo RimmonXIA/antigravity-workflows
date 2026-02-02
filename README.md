@@ -53,9 +53,15 @@ To build a new frontend feature:
 For focused tasks that don't need a full design doc:
 > **/task** "Fix the typo in the login error message."
 
-### 3. Debugging
-To investigate a complex issue:
+### 3. Debugging (SoTA)
+To investigate a complex issue with Deep Tracing:
 > **/diagnose** "The API is returning 500 on the payment endpoint."
+*(Generates Failure Sequence Diagram & Traceability Matrix)*
+
+### 4. Reverse Engineering (SoTA)
+To generate living documentation from existing code:
+> **/reverse-engineer**
+*(Generates Topology Map, Living PRD/Design Docs with Code Permalinks)*
 
 ---
 

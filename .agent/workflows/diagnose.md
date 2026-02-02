@@ -65,36 +65,55 @@ Confirm from rule-advisor output:
    - Commonalities between cause change and affected area
    - Determination of whether the change is a "correct fix" or "new bug" with comparison baseline selection
 
-## Diagnosis Flow Overview
+### Step 0.5: Scope Topology Mapping (New SoTA Step)
 
+**Goal**: Identify the "Blast Radius" and hidden dependencies before investigating.
+
+**Task tool invocation**:
 ```
-Problem → investigator → verifier → solver ─┐
-                 ↑                          │
-                 └── confidence < high ─────┘
-                      (max 2 iterations)
-
-confidence=high reached → Report
+subagent_type: scope-discoverer
+prompt: |
+  Map the topology surrounding the reported error.
+  target_path: $SUSPECTED_MODULE
+  visualize: true
 ```
+**Store output as**: `$TOPOLOGY_MAP`
 
-**Context Separation**: Pass only structured JSON output to each step. Each step starts fresh with the JSON data only.
+## Diagnosis Flow Overview (Hypothesis-Driven)
+
+```mermaid
+graph TD
+    Start --> Topology[Topology Mapping]
+    Topology --> Investigate[Deep Investigation]
+    Investigate --> Verify{Hypothesis Verifier}
+    
+    Verify -->|Confidence < High| Loop[Hypothesis Loop]
+    Loop -->|Trace Logic| Investigate
+    
+    Verify -->|Confidence = High| Solution[Solver]
+    Solution --> Report[Final Report]
+```
 
 ## Execution Steps
 
 Register the following in TodoWrite and execute:
 
-### Step 1: Investigation (investigator)
+### Step 1: Deep Investigation (investigator)
 
 **Task tool invocation**:
 ```
 subagent_type: investigator
-prompt: Comprehensively collect information related to the following phenomenon.
-
-Phenomenon: [Problem reported by user]
+prompt: |
+  Comprehensively collect information related to the following phenomenon.
+  
+  Phenomenon: [Problem reported by user]
+  Topology: $TOPOLOGY_MAP
+  mode: deep_tracing
 ```
 
-**Expected output**: Evidence matrix, comparison analysis results, causal tracking results, list of unexplored areas, investigation limitations
+**Expected output**: Evidence matrix, `failureSequenceDiagram`, comparison analysis, causal tracking.
 
-### Step 2: Investigation Quality Check
+### Step 2: Investigation Quality Check & Design Gap Escalation
 
 Review investigation output:
 
@@ -103,6 +122,7 @@ Review investigation output:
 - [ ] causalChain for each hypothesis (reaching stop condition)
 - [ ] causeCategory for each hypothesis
 - [ ] Investigation covering investigationFocus items (when provided)
+- [ ] failureSequenceDiagram
 
 **If quality insufficient**: Re-run investigator specifying missing items
 
@@ -123,12 +143,14 @@ Proceed to verifier once quality is satisfied.
 **Task tool invocation**:
 ```
 subagent_type: verifier
-prompt: Verify the following investigation results.
-
-Investigation results: [Investigation JSON output]
+prompt: |
+  Verify the following investigation results using Trace Validation.
+  
+  Investigation results: [Investigation JSON output]
+  mode: trace_validation
 ```
 
-**Expected output**: Alternative hypotheses (at least 3), Devil's Advocate evaluation, final conclusion, confidence
+**Expected output**: Confirmed Hypothesis, Disproved Hypotheses, Trace Validity Score.
 
 **Confidence Criteria**:
 - **high**: No uncertainty affecting solution selection or implementation
@@ -158,50 +180,35 @@ Confidence: [high/medium/low]
    - Continue additional investigation
    - Execute solution at current confidence level
 
-### Step 5: Final Report Creation
+### Step 5: SoTA Final Report Creation
 
 **Prerequisite**: confidence=high achieved
 
 After diagnosis completion, report to user in the following format:
 
-```
-## Diagnosis Result Summary
+```markdown
+## 🩺 Deep Diagnosis Report
 
-### Identified Causes
-[Cause list from verification results]
-- Causes relationship: [independent/dependent/exclusive]
+### 🔴 Root Cause Analysis (RCA)
+[Summary of the confirmed root cause]
 
-### Verification Process
-- Investigation scope: [Scope confirmed in investigation]
-- Additional investigation iterations: [0/1/2]
-- Alternative hypotheses count: [Number generated in verification]
+### 📸 Failure Sequence Diagram
+[Mermaid Diagram from investigator]
 
-### Recommended Solution
+### 🛠️ Recommended Solution
 [Solution derivation recommendation]
 
-Rationale: [Selection rationale]
+### 🔗 Traceability
+- **Error Source**: [File](file:///path/to/file#L10)
+- **Fix Location**: [File](file:///path/to/file#L20)
 
-### Implementation Steps
-1. [Step 1]
-2. [Step 2]
-...
-
-### Alternatives
-[Alternative description]
-
-### Residual Risks
+### ⚠️ Residual Risks
 [solver's residualRisks]
-
-### Post-Resolution Verification Items
-- [Verification item 1]
-- [Verification item 2]
 ```
 
 ## Completion Criteria
 
-- [ ] Executed investigator and obtained evidence matrix, comparison analysis, and causal tracking
-- [ ] Performed investigation quality check and re-ran if insufficient
-- [ ] Executed verifier and obtained confidence level
-- [ ] Executed solver
-- [ ] Achieved confidence=high (or obtained user approval after 2 additional iterations)
-- [ ] Presented final report to user
+- [ ] Executed Toplogy Mapping
+- [ ] Executed Deep Investigation with Failure Sequence Diagram
+- [ ] Verified Hypothesis via Trace Validation
+- [ ] Generated SoTA Final Report with Traceability Links.

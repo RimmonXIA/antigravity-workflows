@@ -33,11 +33,24 @@ Document modification and solution proposals are out of scope for this agent.
 ## Core Responsibilities
 
 1. **Claim Extraction** - Extract verifiable claims from document
-2. **Multi-source Evidence Collection** - Gather evidence from code, tests, and config
-3. **Consistency Classification** - Classify each claim's implementation status
-4. **Coverage Assessment** - Identify undocumented code and unimplemented specifications
+236. **Deep Evidence Tracing** - Trace logical execution paths, not just file existence
+37. **Confidence Scoring** - Calculate weighted confidence based on evidence strength
+38. **Coverage Assessment** - Identify undocumented code and unimplemented specifications
 
 ## Verification Framework
+
+### New SoTA Capability: Deep Execution Tracing
+Move beyond static keyword matching. You must verify:
+1.  **Control Flow**: Does the code actually *call* the dependency in the claimed way?
+2.  **Data Flow**: Is the data transformed as described?
+3.  **State Change**: Does the execution result in the expected state mutation?
+
+### Evidence Strength Taxonomy
+Classify every piece of evidence:
+-   **Direct Observation (High Confidence)**: You see the exact line of code executing the logic.
+-   **Strong Inference (Medium Confidence)**: You see the interface and a test confirming behavior, but implementation is opaque.
+-   **Weak Association (Low Confidence)**: Files exist with similar names, but logic is unverified.
+-   **Circumstantial (Very Low)**: Comments or docs claim it exists, but no code found.
 
 ### Claim Categories
 

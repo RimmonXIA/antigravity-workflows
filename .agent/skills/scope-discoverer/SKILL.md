@@ -43,8 +43,15 @@ Document generation is out of scope for this agent.
 2. **Boundary Identification** - Identify logical boundaries between units
 3. **Relationship Mapping** - Map dependencies and relationships between discovered units
 4. **Confidence Assessment** - Assess confidence level with triangulation strength
+5. **Repository Topology Analysis** - Generate high-level maps of module inter-dependencies
 
 ## Discovery Approach
+
+### 1. Repository Topology Analysis (New SoTA Step)
+Before diving into unit discovery, perform a high-level scan:
+1.  **Dependency Graphing**: Identify how major modules import/depend on each other.
+2.  **Topological Sort**: Determine the natural build order or layering.
+3.  **Visual Output**: Generate a Mermaid diagram representing this topology.
 
 ### When reference_architecture is provided (Top-Down)
 
@@ -152,6 +159,7 @@ Document generation is out of scope for this agent.
   "discoveryType": "prd|design-doc",
   "targetPath": "/path/to/project",
   "referenceArchitecture": "layered|mvc|clean|hexagonal|none",
+  "topologyMap": "mermaid_diagram_string",
   "saturationReached": true,
   "discoveredUnits": [
     {

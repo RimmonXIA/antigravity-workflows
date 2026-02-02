@@ -175,15 +175,16 @@ When external scope is NOT provided:
 - Comprehensively confirm related files, tests, and configurations
 - Write specifications with confidence (minimize speculation and assumptions)
 
-### Confidence Gating
+### Confidence Gating (Strict 2025 Standard)
 
-Before documenting any claim, assess confidence level:
+Before documenting any claim, assess confidence level using the **BIP (Behavior-Implementation-Pattern)** model:
 
-| Confidence | Evidence | Output Format |
+| Confidence | Evidence Required | Output Action |
 |------------|----------|---------------|
-| Verified | Direct code observation, test confirmation | State as fact |
-| Inferred | Indirect evidence, pattern matching | Mark with context |
-| Unverified | No direct evidence, speculation | Add to "Undetermined Items" section |
+| **Verified** | Code Implementation + Test Case + Local Execution | State as fact with link to code |
+| **High Inference** | Code Implementation + Test Case | State as likely fact |
+| **Low Inference** | Code Structure or Naming only | Mark as "Inferred" |
+| **Unverified** | Documentation only (no code) | **MUST** add to "Undetermined Items" |
 
 **Rules**:
 - Never document Unverified claims as facts

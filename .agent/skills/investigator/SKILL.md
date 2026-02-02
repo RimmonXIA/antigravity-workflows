@@ -69,6 +69,12 @@ Information source priority:
 - Stopping at "~ is not configured" → without tracing why it's not configured
 - Stopping at technical element names → without tracing why that state occurred
 
+### Step 3.5 (New SoTA): Execution Simulation & Diagramming
+For the top probable hypothesis:
+1.  **Trace Execution**: Step through the logical flow (mental model) to see if the error is reachable.
+2.  **Generate Failure Sequence Diagram**: Create a Mermaid sequence diagram showing the interactions leading to the failure.
+    -   Include: Start trigger, Component interactions, Error point.
+
 ### Step 4: Impact Scope Identification and Output
 
 - Search for locations implemented with the same pattern (impactScope)
@@ -140,6 +146,7 @@ Information source priority:
     {"area": "Unexplored area", "reason": "Reason could not investigate", "potentialRelevance": "Relevance"}
   ],
   "factualObservations": ["Objective facts observed regardless of hypotheses"],
+  "failureSequenceDiagram": "mermaid_sequence_diagram_string",
   "investigationLimitations": ["Limitations and constraints of this investigation"]
 }
 ```

@@ -22,9 +22,63 @@ This repository utilizes Google Antigravity's **Agent-First Design**.
 | **Quick Fix** | `/task` | Execute a single, specific task (Backend/General). |
 | **Bug Investigation** | `/diagnose` | Deep dive investigation using the `investigator` persona. |
 | **Reverse Engineering** | `/reverse-engineer` | Generate PRDs and Design Docs from existing code. |
-| **Update Docs** | `/update-doc` | Update existing design documents. |
+| **Update Docs** | `/amend` | Update existing design documents. |
 
-### Example Usage
+### 3. Rapid Fixes (Turbo Mode)
+> **/quick-task**
+
+**Purpose**: High-speed execution for "Atomic Fixes" (<50 LOC).
+**When to Use**:
+- Typos / Label changes
+- Single-function bug fixes
+- CSS adjustments
+
+**Security Protocol**:
+1.  **Complexity Gate**: The agent analyzes file count. If >3 files, it REJECTS.
+2.  **No Design Doc**: It skips the design phase.
+3.  **No Work Plan**: It creates a transient plan in memory.
+
+---
+
+### 4. Documentation Safeguard
+> **/reconcile**
+
+**Purpose**: "Garbage Collection" for Documentation Drift.
+**When to Use**:
+- **Fridays**: Run before weekend.
+- **Pre-Release**: Run before merging to main.
+
+**Mechanism**:
+- **Active Scanner**: `git log` scans last 7 days.
+- **Drift Detection**: Finds files changed without doc updates.
+- **Back-propagation**: Updates Design Docs to match reality.
+
+- **Back-propagation**: Updates Design Docs to match reality.
+
+---
+
+### 5. Maintenance & Audits
+
+#### Update Design (Planning)
+> **/amend** "Add new API field"
+
+**Purpose**: Formal change management.
+**Use Case**: You want to change the plan *before* coding (Strong Consistency).
+
+#### Compliance Check (Verification)
+> **/review** (Backend) or **/front-review** (Frontend)
+
+**Purpose**: "Is my code legal according to the Design Doc?"
+**Use Case**: Run this before a major merge to ensure you haven't drifted from the approved design.
+
+#### Cognitive Audit (Deep Logic)
+> **/cognitive_integrity_protocol**
+
+**Purpose**: The "Sanity Check".
+**Mechanism**:
+- Reads the entire project topology.
+- Looks for "Fractal Inconsistencies" (e.g., naming clashes, logic gaps).
+- Produces a "Mental Model Alignment Report".
 
 > **/ideate** I want a platform for sharing AI prompts.
 

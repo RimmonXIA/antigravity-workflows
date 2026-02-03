@@ -14,6 +14,9 @@ This repository transforms your Antigravity agent into a disciplined engineering
 
 ## 🚀 Features
 
+### The Antigravity Flow
+The [Workflow Constitution](.agent/rules/00_constitution.md) defines the authoritative process graph, including both Standard and Turbo modes.
+
 ### Agent-First Design
 Instead of simple autocompletion, this project provides **Autonomous Workflows**:
 - **Requirement Analysis**: The agent stops to think and plan before coding.
@@ -67,19 +70,43 @@ To build a new frontend feature:
 > _(Then, once designed)_
 > **/front-build**
 
-### 3. Bug Fixes & Small Tasks
+### 4. Bug Fixes & Small Tasks (Turbo Mode)
 For focused tasks that don't need a full design doc:
-> **/task** "Fix the typo in the login error message."
+> **/quick-task** "Fix the typo in the login error message."
+> *(Bypasses Planning Phase, goes straight to Execution via a high-speed lane)*
 
-### 4. Debugging (SoTA)
+### 5. Documentation Safeguard
+To prevent "Documentation Drift" from Turbo Mode usage:
+To prevent "Documentation Drift" from Turbo Mode usage:
+> **/reconcile**
+> *(Active Scanner: Detects undocumented code changes from the last 7 days and back-propagates them into Design Docs)*
+
+### 6. Legacy Tasks
+For standard small tasks using the legacy flow:
+> **/task** "Research the database schema."
+
+### 7. Debugging (SoTA)
 To investigate a complex issue with Deep Tracing:
 > **/diagnose** "The API is returning 500 on the payment endpoint."
-*(Generates Failure Sequence Diagram & Traceability Matrix)*
+> *(Generates Failure Sequence Diagram & Traceability Matrix)*
 
-### 5. Reverse Engineering (SoTA)
+### 8. Reverse Engineering (SoTA)
 To generate living documentation from existing code:
 > **/reverse-engineer**
 *(Generates Topology Map, Living PRD/Design Docs with Code Permalinks)*
+
+### 9. Maintenance & Audit
+Advanced tools for keeping the codebase healthy:
+### 9. Maintenance & Audit
+Advanced tools for keeping the codebase healthy:
+> **/amend** "Add 'deleted_at' field to User table."
+> *(Explicitly updates Design Docs/PRDs before you code)*
+>
+> **/review** (or **/front-review**)
+> *(Checks code compliance against the Design Doc)*
+>
+> **/cognitive_integrity_protocol**
+> *(Deep Audit: Checks if the "Mental Model" of the code matches the documentation)*
 
 ---
 

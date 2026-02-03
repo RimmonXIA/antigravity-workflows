@@ -8,7 +8,7 @@ description: Execute frontend implementation in autonomous execution mode
 
 **Execution Method**:
 - Task decomposition → performed by task-decomposer
-- Frontend implementation → performed by task-executor-frontend
+- Frontend implementation → performed by task-executor
 - Quality checks and fixes → performed by quality-fixer-frontend
 - Commits → performed by orchestrator (Bash tool)
 
@@ -67,7 +67,7 @@ Invoke task-decomposer using Task tool:
 
 ## Task Execution Cycle (4-Step Cycle) - Frontend Specialized
 
-**MANDATORY EXECUTION CYCLE**: `task-executor-frontend → escalation check → quality-fixer-frontend → commit`
+**MANDATORY EXECUTION CYCLE**: `task-executor → escalation check → quality-fixer-frontend → commit`
 
 ### Sub-agent Invocation Method
 Use Task tool to invoke sub-agents:
@@ -77,7 +77,7 @@ Use Task tool to invoke sub-agents:
 
 ### Structured Response Specification
 Each sub-agent responds in JSON format:
-- **task-executor-frontend**: status, filesModified, testsAdded, readyForQualityCheck
+- **task-executor**: status, filesModified, testsAdded, readyForQualityCheck
 - **quality-fixer-frontend**: status, checksPerformed, fixesApplied, approved
 
 ### Execution Flow for Each Task
@@ -85,16 +85,16 @@ Each sub-agent responds in JSON format:
 For EACH task, YOU MUST:
 
 1. **UPDATE TodoWrite**: Register work steps. Always include: first "Confirm skill constraints", final "Verify skill fidelity"
-2. **USE task-executor-frontend**: Execute frontend implementation
-   - Invocation example: `subagent_type: "task-executor-frontend"`, `description: "Task execution"`, `prompt: "Task file: docs/plans/tasks/[filename].md Execute implementation"`
-3. **CHECK ESCALATION**: Check task-executor-frontend status → If `status: "escalation_needed"` → STOP and escalate to user
+2. **USE task-executor**: Execute frontend implementation
+   - Invocation example: `subagent_type: "task-executor"`, `description: "Task execution"`, `prompt: "Task file: docs/plans/tasks/[filename].md Execute implementation (Domain: Frontend)"`
+3. **CHECK ESCALATION**: Check task-executor status → If `status: "escalation_needed"` → STOP and escalate to user
 4. **PROCESS structured responses**: When `readyForQualityCheck: true` is detected → EXECUTE quality-fixer-frontend IMMEDIATELY
 5. **USE quality-fixer-frontend**: Execute all quality checks (Lighthouse, bundle size, tests, etc.)
    - Invocation example: `subagent_type: "quality-fixer-frontend"`, `description: "Quality check"`, `prompt: "Execute all frontend quality checks and fixes"`
 6. **EXECUTE commit**: After `approved: true` confirmation, execute git commit IMMEDIATELY
 
 ### Quality Assurance During Autonomous Execution (Details)
-- task-executor-frontend execution → escalation check → quality-fixer-frontend execution → **orchestrator executes commit** (using Bash tool)
+- task-executor execution → escalation check → quality-fixer-frontend execution → **orchestrator executes commit** (using Bash tool)
 - After quality-fixer-frontend's `approved: true` confirmation, execute git commit IMMEDIATELY
 - Use `changeSummary` for commit message
 
@@ -111,4 +111,4 @@ Frontend implementation phase completed.
 - Quality checks: All passed (Lighthouse, bundle size, tests)
 - Commits: [number] commits created
 
-**Important**: This command manages the entire autonomous execution flow for FRONTEND implementation from task decomposition to completion. Automatically uses frontend-specialized agents (task-executor-frontend, quality-fixer-frontend).
+**Important**: This command manages the entire autonomous execution flow for FRONTEND implementation from task decomposition to completion. Automatically uses specialized agents (task-executor, quality-fixer-frontend).

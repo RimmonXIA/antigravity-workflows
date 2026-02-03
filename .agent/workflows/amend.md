@@ -1,5 +1,5 @@
 ---
-name: update-doc
+name: amend
 description: Update existing design documents (Design Doc / PRD / ADR) with review
 ---
 

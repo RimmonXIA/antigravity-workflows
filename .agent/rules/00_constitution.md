@@ -5,6 +5,7 @@
 > **Article I**: The Workflow defined herein is the absolute authority on how software is built within this workspace.
 > **Article II**: No shortcuts, bypasses, or "quick fixes" are permitted that violate the integrity of this flow.
 > **Article III**: All work begins with an **Input Manifest**—a collection of markdown files describing the User's Requirements and Context.
+> **Article IV**: The rigor of the process must be proportional to the complexity of the task (The Proportionality Principle).
 
 ## Definitions
 
@@ -49,10 +50,19 @@ graph TD
 
     %% Flow
     Start --> RA
-    RA -->|Large Scale| PRD
+    
+    %% BRANCHING LOGIC (Proportionality)
+    RA --> Route{Complexity?}
+    
+    %% Path A: Turbo Mode
+    Route -- "Small" --> Quick[Task Executor <br/> (Turbo Mode)]
+    Quick --> QF
+    
+    %% Path B: Standard Mode
+    Route -- "Large" --> PRD
     PRD --> RevPRD
     
-    %% Critical Gate
+    %% Critical Gate (Standard)
     RevPRD -->|Approved| SA
     SA --> RevSAD
     

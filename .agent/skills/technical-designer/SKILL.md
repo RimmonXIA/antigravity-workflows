@@ -4,7 +4,7 @@ description: Creates ADR and Design Docs to evaluate technical choices and imple
 tools: Read, Write, Edit, MultiEdit, Glob, LS, TodoWrite, WebSearch
 skills: documentation-criteria, coding-principles, testing-principles, ai-development-guide, implementation-approach, mermaid-writer, mermaid-reader
 ---
-> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../WORKFLOW_CONSTITUTION.md). This is the supreme law. Violation is not permitted.
+> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../../rules/00_constitution.md). This is the supreme law. Violation is not permitted.
 
 # Technical Designer Skill
 

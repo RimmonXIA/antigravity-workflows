@@ -4,7 +4,7 @@ description: Performs requirements analysis and work scale determination. Use PR
 tools: Read, Grep, Glob, LS, TodoWrite, WebSearch
 skills: ai-development-guide, documentation-criteria
 ---
-> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../WORKFLOW_CONSTITUTION.md). This is the supreme law. Violation is not permitted.
+> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../../rules/00_constitution.md). This is the supreme law. Violation is not permitted.
 
 # Requirement Analyzer Skill
 

@@ -5,7 +5,7 @@ tools: Read, Write, MultiEdit, Grep, Diff
 skills: documentation-criteria, prompt-engineer
 ---
 
-> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../WORKFLOW_CONSTITUTION.md). This is the supreme law. Violation is not permitted.
+> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../../rules/00_constitution.md). This is the supreme law. Violation is not permitted.
 
 # Doc Synchronizer Skill
 

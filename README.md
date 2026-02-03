@@ -1,10 +1,10 @@
 # Antigravity Developer Workflows
 
-[![Constitution](https://img.shields.io/badge/Constitution-Supreme_Law-red)](.agent/WORKFLOW_CONSTITUTION.md)
+[![Constitution](https://img.shields.io/badge/Constitution-Supreme_Law-red)](.agent/rules/00_constitution.md)
 [![Antigravity Native](https://img.shields.io/badge/Antigravity-Native-purple)](https://antigravity.google)
 [![Dual Memory](https://img.shields.io/badge/Dual_Memory-Active-blue)](#the-dual-memory-philosophy)
 
-> ⚠️ **CONSTITUTION**: All work must strictly adhere to the [Workflow Constitution](.agent/WORKFLOW_CONSTITUTION.md). This is the supreme law of this workspace.
+> ⚠️ **CONSTITUTION**: All work must strictly adhere to the [Workflow Constitution](.agent/rules/00_constitution.md). This is the supreme law of this workspace.
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **Production-ready agentic workflows for Google Antigravity.**
@@ -44,6 +44,8 @@ This workspace operates on a **Dual Memory** model to bridge the gap between AI 
 | :--- | :--- | :--- |
 | **Session Memory** | `.agent/brain/...` | **Negotiation & Context.** Temporary artifacts (`prd.md`, `task.md`) where the agent thinks, plans, and negotiates with you. **Check these first.** |
 | **Project Memory** | `docs/...` | **Truth & Archival.** Permanent documentation (`docs/design/`, `docs/api/`) updated only *after* the plan is approved and executed. |
+
+> See [System Topology](docs/ANTIGRAVITY_SYSTEM_TOPOLOGY.md) for a detailed map of the Antigravity filesystem and resource hierarchy.
 
 ---
 

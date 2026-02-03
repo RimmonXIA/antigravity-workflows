@@ -3,7 +3,7 @@ name: diagnose
 description: Investigate problem, verify findings, and derive solutions
 ---
 
-> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../WORKFLOW_CONSTITUTION.md). This is the supreme law. Violation is not permitted.
+> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../rules/00_constitution.md). This is the supreme law. Violation is not permitted.
 
 **Command Context**: Diagnosis flow to identify root cause and present solutions
 

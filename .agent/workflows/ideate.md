@@ -3,7 +3,7 @@ name: ideate
 description: Collaborate with the user to turn vague ideas into a concrete Product Requirements Document (PRD).
 ---
 
-> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../WORKFLOW_CONSTITUTION.md). This is the supreme law. Violation is not permitted.
+> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../rules/00_constitution.md). This is the supreme law. Violation is not permitted.
 
 # Ideation Orchestrator
 

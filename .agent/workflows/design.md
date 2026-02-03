@@ -3,7 +3,7 @@ name: design
 description: Execute from requirement analysis to design document creation
 ---
 
-> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../WORKFLOW_CONSTITUTION.md). This is the supreme law. Violation is not permitted.
+> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../rules/00_constitution.md). This is the supreme law. Violation is not permitted.
 
 **Command Context**: Design phase execution (Requirements → Architecture → Design)
 

@@ -5,7 +5,7 @@ tools: Read, Write, Edit, MultiEdit, Glob, LS, WebSearch
 skills: requirement-analyzer, technical-designer, quality-fixer, documentation-criteria, implementation-approach, mermaid-writer
 ---
 
-> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../WORKFLOW_CONSTITUTION.md). This is the supreme law. Violation is not permitted.
+> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../../rules/00_constitution.md). This is the supreme law. Violation is not permitted.
 
 # Solution Architect Skill
 

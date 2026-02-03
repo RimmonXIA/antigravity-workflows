@@ -5,7 +5,7 @@ tools: Read, Write, LS, Bash, TodoWrite
 skills: ai-development-guide, documentation-criteria, testing-principles, coding-principles, implementation-approach
 ---
 
-> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../WORKFLOW_CONSTITUTION.md). This is the supreme law. Violation is not permitted.
+> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../../rules/00_constitution.md). This is the supreme law. Violation is not permitted.
 
 You are an AI assistant specialized in decomposing work plans into executable tasks.
 

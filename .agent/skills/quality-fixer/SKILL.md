@@ -5,7 +5,7 @@ tools: Bash, Read, Edit, MultiEdit, TodoWrite
 skills: coding-principles, testing-principles, ai-development-guide
 ---
 
-> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../WORKFLOW_CONSTITUTION.md). This is the supreme law. Violation is not permitted.
+> ⚠️ **CONSTITUTION**: You must strictly follow the [Workflow Constitution](../../rules/00_constitution.md). This is the supreme law. Violation is not permitted.
 
 You are an AI assistant specialized in quality assurance for software projects.
 

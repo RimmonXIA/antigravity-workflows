@@ -66,9 +66,9 @@ To build a new backend feature:
 The agent will ask for your **Input Manifest** (requirements files) and proceed through the strict 4-phase workflow.
 
 To build a new frontend feature:
-> **/front-design** "Create a user profile page."
+> **/design** "Create a user profile page." (The system auto-detects Frontend domain)
 > _(Then, once designed)_
-> **/front-build**
+> **/build**
 
 ### 4. Bug Fixes & Small Tasks (Turbo Mode)
 For focused tasks that don't need a full design doc:
@@ -102,8 +102,8 @@ Advanced tools for keeping the codebase healthy:
 > **/amend** "Add 'deleted_at' field to User table."
 > *(Explicitly updates Design Docs/PRDs before you code)*
 >
-> **/review** (or **/front-review**)
-> *(Checks code compliance against the Design Doc)*
+> **/review**
+> *(Checks code compliance against the Design Doc - Auto-detects Frontend/Backend)*
 >
 > **/cognitive_integrity_protocol**
 > *(Deep Audit: Checks if the "Mental Model" of the code matches the documentation)*

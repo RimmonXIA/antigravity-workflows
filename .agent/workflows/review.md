@@ -3,7 +3,7 @@ name: review
 description: Design Doc compliance validation with optional auto-fixes
 ---
 
-**Command Context**: Post-implementation quality assurance command
+**Command Context**: Post-implementation quality assurance command (Universal)
 
 ## Orchestrator Definition
 
@@ -15,7 +15,7 @@ description: Design Doc compliance validation with optional auto-fixes
 
 - Compliance validation → performed by code-reviewer
 - Fix implementation → performed by task-executor
-- Quality checks → performed by quality-fixer
+- Quality checks → performed by quality-fixer OR quality-fixer-frontend
 - Re-validation → performed by code-reviewer
 
 Orchestrator invokes sub-agents and passes structured JSON between them.
@@ -24,13 +24,20 @@ Design Doc (uses most recent if omitted): $ARGUMENTS
 
 ## Execution Flow
 
-### Step 1: Prerequisite Check
+### Step 1: Prerequisite & Domain Check
 ```bash
 # Identify Design Doc
 ls docs/design/*.md | grep -v template | tail -1
 
 # Check implementation files
 git diff --name-only main...HEAD
+
+# Detect Domain
+if [ -f "package.json" ] || [ -f "tsconfig.json" ]; then
+  echo "DOMAIN_DETECTED=FRONTEND"
+else
+  echo "DOMAIN_DETECTED=BACKEND"
+fi
 ```
 
 ### Step 2: Execute code-reviewer
@@ -57,31 +64,35 @@ Unfulfilled items:
 Execute fixes? (y/n):
 ```
 
-### Step 4: Execute Skill
+### Step 4: Execute Skill (Fix Path)
 
-If user selects `n` or compliance sufficient: Skip Steps 4-8, proceed to Step 9.
+If user selects `n` or compliance sufficient: **SKIP** to Step 9.
+If user selects `y`:
 
-Execute Skill: documentation-criteria (for task file template)
+#### 4a. Pre-fix Metacognition (Frontend Only / Optional for Backend)
+**IF DOMAIN_DETECTED == FRONTEND**:
+1. **Execute rule-advisor**: Understand fix essence (symptomatic treatment vs root solution).
+   - "Understand fix essence for [unfulfilled items]"
 
-### Step 5: Create Task File
+#### 4b. Create Task File
+- Execute `documentation-criteria` for task template.
+- Create task file at `docs/plans/tasks/review-fixes-YYYYMMDD.md`.
 
-Create task file at `docs/plans/tasks/review-fixes-YYYYMMDD.md`
-
-### Step 6: Execute Fixes
-
+#### 4c. Execute Fixes
 Invoke task-executor using Task tool:
 - `subagent_type`: "task-executor"
 - `description`: "Execute review fixes"
-- `prompt`: "Task file: docs/plans/tasks/review-fixes-YYYYMMDD.md. Apply staged fixes (stops at 5 files)."
+- `prompt`: "Task file: docs/plans/tasks/review-fixes-YYYYMMDD.md. Apply staged fixes (stops at 5 files). Domain: $DOMAIN_DETECTED"
 
-### Step 7: Quality Check
+### Step 5: Quality Check
 
-Invoke quality-fixer using Task tool:
-- `subagent_type`: "quality-fixer"
-- `description`: "Quality gate check"
-- `prompt`: "Confirm quality gate passage for fixed files."
+**IF DOMAIN_DETECTED == FRONTEND**:
+- Invoke **quality-fixer-frontend**: "Confirm quality gate passage for fixed files."
 
-### Step 8: Re-validate
+**ELSE**:
+- Invoke **quality-fixer**: "Confirm quality gate passage for fixed files."
+
+### Step 6: Re-validate
 
 Invoke code-reviewer using Task tool:
 - `subagent_type`: "code-reviewer"

@@ -15,7 +15,7 @@ description: Execute from requirement analysis to design document creation
 **Execution Protocol**:
 1. **Delegate all work** to sub-agents (NEVER investigate/analyze yourself)
 2. **Follow subagents-orchestration-guide skill design flow exactly**:
-   - Execute: requirement-analyzer → technical-designer → document-reviewer → design-sync
+   - Execute: requirement-analyzer → technical-designer (Backend/Frontend) → document-reviewer → design-sync
    - **Stop at every `[Stop: ...]` marker** → Wait for user approval before proceeding
 3. **Scope**: Complete when design documents receive approval
 
@@ -27,45 +27,57 @@ flowchart TD
     Start([Input Manifest]) --> Analyze[Requirement Analysis]
     Analyze --> Gate1{Scale Check}
     
-    Gate1 -- "Approved" --> Design[Technical Design]
-    Design --> Review{Doc Review}
+    Gate1 -- "Approved" --> Detect{Detect Domain}
+    Detect -- "Frontend" --> DesignFront[Technical Designer Frontend]
+    Detect -- "Backend" --> DesignBack[Technical Designer]
     
-    Review -- "Changes Needed" --> Design
+    DesignFront --> Review{Doc Review}
+    DesignBack --> Review
+    
+    Review -- "Changes Needed" --> DesignBack
     Review -- "Approved" --> Sync[Design Sync]
     Sync --> Finish([Design Approved])
 ```
 
-## Scope Boundaries
+## Execution Flow
 
-**Included in this command**:
-- Requirement analysis with requirement-analyzer
-- ADR creation (if architecture changes, new technology, or data flow changes)
-- Design Doc creation with technical-designer
-- Document review with document-reviewer
-- Design Doc consistency verification with design-sync
+### Step 0: Domain Detection
+```bash
+if [ -f "package.json" ] || [ -f "tsconfig.json" ]; then
+  echo "DOMAIN_DETECTED=FRONTEND"
+else
+  echo "DOMAIN_DETECTED=BACKEND"
+fi
+```
+*(Or infer from User Request arguments)*
 
-**Responsibility Boundary**: This command completes with design document approval.
+### Step 1: Requirements
+- Invoke **requirement-analyzer**: "Execute requirement analysis".
+- **[STOP]**: Confirm scale and domain.
 
-Requirements: $ARGUMENTS
+### Step 2: Architecture & Design
+Create appropriate design documents.
+
+**IF DOMAIN_DETECTED == FRONTEND**:
+- Invoke **technical-designer-frontend**
+  - Prompt: "Create [ADR/Design Doc] for requirements. Focus on React/Component design."
+
+**ELSE**:
+- Invoke **technical-designer**
+  - Prompt: "Create [ADR/Design Doc] for requirements. Focus on System/Backend design."
+
+### Step 3: Review & Sync
+- Invoke **document-reviewer**: "Review [document path] for consistency and completeness".
+- **[STOP]**: Address feedback.
+- Invoke **design-sync**: "Verify consistency across Design Docs".
+- **[STOP]**: Obtain final user approval.
+
+## Requirements: $ARGUMENTS
 
 Considering the deep impact on design, first engage in dialogue to understand the background and purpose of requirements:
 - What problems do you want to solve?
 - Expected outcomes and success criteria
 - Relationship with existing systems
-
-Once requirements are moderately clarified, analyze with requirement-analyzer and create appropriate design documents according to scale.
-
-Clearly present design alternatives and trade-offs.
-
-**Scope**: Up to design document (ADR/Design Doc) approval. Work planning and beyond are outside the scope of this command.
-
-## Completion Criteria
-
-- [ ] Executed requirement-analyzer and determined scale
-- [ ] Created appropriate design document (ADR or Design Doc) with technical-designer
-- [ ] Executed document-reviewer and addressed feedback
-- [ ] Executed design-sync for consistency verification
-- [ ] Obtained user approval for design document
 
 ## Output Example
 Design phase completed.

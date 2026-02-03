@@ -42,7 +42,7 @@ This workspace operates on a **Dual Memory** model to bridge the gap between AI 
 
 | Memory Type | Location | Purpose |
 | :--- | :--- | :--- |
-| **Session Memory** | `.agent/brain/...` | **Negotiation & Context.** Temporary artifacts (`prd.md`, `task.md`) where the agent thinks, plans, and negotiates with you. **Check these first.** |
+| **Session Memory** | `~/.gemini/antigravity/brain/` | **Negotiation & Context.** Temporary artifacts (`prd.md`, `task.md`) where the agent thinks, plans, and negotiates with you. **Check these first.** |
 | **Project Memory** | `docs/...` | **Truth & Archival.** Permanent documentation (`docs/design/`, `docs/api/`) updated only *after* the plan is approved and executed. |
 
 > See [System Topology](docs/ANTIGRAVITY_SYSTEM_TOPOLOGY.md) for a detailed map of the Antigravity filesystem and resource hierarchy.

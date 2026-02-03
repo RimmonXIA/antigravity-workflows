@@ -35,6 +35,15 @@ The `~/.gemini/antigravity/` directory functions as the Agent's "Operating Syste
 | **`playground/`** | **Sandboxes** | Isolated environments for safe code execution and testing. |
 | **`context_state/`** | **State Snapshots** | IDE state persistence (open files, cursors, scroll positions). |
 
+### Memory Resolution Strategy
+A key architectural principle is that **Session Memory** is *Runtime-Managed*, while **Project Memory** is *Repo-Enforced*.
+
+| Memory Type | Path Resolution | Owner | Mechanism |
+| :--- | :--- | :--- | :--- |
+| **Session Memory** | Dynamic (`<appDataDir>/brain/...`) | **Runtime** | The location is injected into the agent's context at runtime. The repo does not hardcode this path; Skills use `appDataDir` variable. |
+| **Project Memory** | Static (`docs/...`) | **Repo** | The structure is enforced by the **Constitution** and **Workflows**. Agents are explicitly forbidden from storing long-term decisions elsewhere. |
+
+
 ## 3. Configuration Primitives
 
 | File | Location | Criticality | Role |

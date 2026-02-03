@@ -9,7 +9,7 @@ graph TD
     Agent[Antigravity Agent]
     
     subgraph "Dual Memory System"
-        SessionMem[("Session Memory\n(Artifacts)\n.agent/brain/...")]
+        SessionMem[("Session Memory\n(Artifacts)\n~/.gemini/brain/...")]
         ProjectMem[("Project Memory\n(Repo Docs)\ndocs/...")]
     end
     

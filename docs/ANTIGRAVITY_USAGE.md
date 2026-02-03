@@ -15,6 +15,7 @@ This repository utilizes Google Antigravity's **Agent-First Design**.
 
 | Goal | Command | Description |
 | :--- | :--- | :--- |
+| **Ideation** | `/ideate` | Interactive research & prototyping to create a PRD. |
 | **New Feature (Backend)** | `/implement` | Full lifecycle: Requirements -> Plan -> Code (TDD) -> Review. |
 | **New Feature (Frontend)** | `/front-design` | Step 1: Design React components. |
 | **Frontend Build** | `/front-build` | Step 2: Implement components from design. |
@@ -24,6 +25,8 @@ This repository utilizes Google Antigravity's **Agent-First Design**.
 | **Update Docs** | `/update-doc` | Update existing design documents. |
 
 ### Example Usage
+
+> **/ideate** I want a platform for sharing AI prompts.
 
 > **/implement** Add a user login API using JWT.
 

@@ -49,7 +49,12 @@ This workspace operates on a **Dual Memory** model to bridge the gap between AI 
 
 ## 🛠️ Usage
 
-### 1. New Feature Implementation
+### 1. Ideation (SoTA)
+Turn a vague idea into a researched, visualized PRD:
+> **/ideate** "I want a habit tracker app."
+*(Performs Market Research, Generates Vibe Images, Drafts PRD)*
+
+### 2. New Feature Implementation
 To build a new backend feature:
 > **/implement** (Ensure you have an `Input Manifest` prepared)
 
@@ -60,16 +65,16 @@ To build a new frontend feature:
 > _(Then, once designed)_
 > **/front-build**
 
-### 2. Bug Fixes & Small Tasks
+### 3. Bug Fixes & Small Tasks
 For focused tasks that don't need a full design doc:
 > **/task** "Fix the typo in the login error message."
 
-### 3. Debugging (SoTA)
+### 4. Debugging (SoTA)
 To investigate a complex issue with Deep Tracing:
 > **/diagnose** "The API is returning 500 on the payment endpoint."
 *(Generates Failure Sequence Diagram & Traceability Matrix)*
 
-### 4. Reverse Engineering (SoTA)
+### 5. Reverse Engineering (SoTA)
 To generate living documentation from existing code:
 > **/reverse-engineer**
 *(Generates Topology Map, Living PRD/Design Docs with Code Permalinks)*
